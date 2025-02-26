@@ -111,7 +111,6 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* ✅ Botón atractivo */
 .button {
     display: inline-block;
     background: #4CAF50;
@@ -121,6 +120,7 @@ h1 {
     text-decoration: none;
     font-weight: 600;
     transition: background 0.3s, transform 0.2s;
+    margin-top: 30px; /* ✅ Separa el botón de los elementos superiores */
 }
 
 .button:hover {
@@ -169,16 +169,21 @@ nav ul li {
     display: inline; /* ✅ Asegura que los ítems estén en línea */
 }
 
-/* ✅ Dropdown Menu */
+/* ✅ Ajustar dropdown para que se muestre correctamente debajo de "Legal" */
+.dropdown {
+    position: relative;
+}
+
 .dropdown-menu {
     display: none;
     position: absolute;
     background: #010305;
     padding: 10px;
     border-radius: 8px;
-    top: 100%;
+    top: 100%; /* ✅ Ahora aparece justo debajo de "Legal" */
     left: 0;
     min-width: 150px;
+    z-index: 1000;
 }
 
 .dropdown-menu li {
