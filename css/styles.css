@@ -37,7 +37,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
-    background: rgba(0, 0, 0, 0.1);
+    background: #010305; /* ✅ Color de fondo corregido */
     backdrop-filter: blur(5px);
     position: fixed;
     width: 100%;
