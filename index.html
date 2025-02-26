@@ -3,11 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email confirmado - SettleIt</title>
+    <title>Verificación de Email - SettleIt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eceff1, #90caf9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #1565c0;
+            font-size: 24px;
+        }
+
+        p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1565c0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .error {
+            color: #d32f2f;
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; text-align: center; padding-top: 50px;">
-    <h1>🎉 Email confirmado correctamente</h1>
-    <p>Tu cuenta ha sido confirmada. ¡Ya puedes usar la app!</p>
-    <p>Abre la aplicación SettleIt para continuar.</p>
+<body>
+
+<div class="container" id="message">
+    <!-- Aquí se inyectará el mensaje -->
+</div>
+
+<script>
+    // Obtener parámetros de la URL
+    const params = new URLSearchParams(window.location.search);
+    const success = params.get("success");
+
+    const messageContainer = document.getElementById("message");
+
+    if (success === "true") {
+        messageContainer.innerHTML = `
+            <h1>🎉 Email confirmado correctamente</h1>
+            <p>Tu cuenta ha sido confirmada. ¡Ya puedes usar la app!</p>
+            <a href="settleit://open" class="button">Abrir SettleIt</a>
+        `;
+    } else {
+        messageContainer.innerHTML = `
+            <h1 class="error">⚠️ Error al confirmar email</h1>
+            <p>No hemos podido verificar tu cuenta. Por favor, intenta nuevamente.</p>
+            <a href="https://settleit.me" class="button">Volver al inicio</a>
+        `;
+    }
+</script>
+
 </body>
 </html>
