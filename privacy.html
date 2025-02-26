@@ -25,5 +25,17 @@
         <p>Welcome to SettleIt. Your privacy is important to us.</p>
         <p>Read the full privacy policy in the app.</p>
     </div>
+
+    <div id="footer-placeholder"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("footer-placeholder").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading footer:", error));
+        });
+    </script>
 </body>
 </html>
