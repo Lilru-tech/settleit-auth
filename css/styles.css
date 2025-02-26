@@ -45,6 +45,13 @@ header {
     height: 40px;
 }
 
+/* ✅ Ajuste del logo en el header */
+.logo img {
+    width: 50px; /* Ajusta el tamaño del logo */
+    height: auto;
+    display: block;
+}
+
 nav a {
     margin: 0 15px;
     text-decoration: none;
