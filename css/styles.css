@@ -18,11 +18,17 @@ body {
 
 /* ✅ También aseguramos que el contenedor principal crezca si es necesario */
 .container {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 600px; /* ✅ Establecemos un ancho máximo */
+    margin: 100px auto; /* ✅ Centramos el contenedor */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
 }
 
 /* ✅ Header con logo y menú */
@@ -148,4 +154,16 @@ h1 {
 
 .contact-info a:hover {
     text-decoration: underline;
+}
+
+nav ul {
+    list-style: none; /* ✅ Elimina los bullet points */
+    display: flex; /* ✅ Hace que los elementos estén en una fila */
+    gap: 20px; /* ✅ Espaciado entre los elementos */
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline; /* ✅ Asegura que los ítems estén en línea */
 }
