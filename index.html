@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to SettleIt</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png"> <!-- ✅ Favicon -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> <!-- ✅ Fuente Poppins -->
 </head>
 <body>
+    <!-- ✅ Header con logo -->
+    <header>
+        <img src="images/favicon.png" alt="SettleIt Logo" class="logo">
+        <nav>
+            <a href="https://settleit.app">Home</a>
+            <a href="https://settleit.app/features">Features</a>
+            <a href="https://settleit.app/contact">Contact</a>
+        </nav>
+    </header>
+
     <div class="container" id="content">
-        <h1>🔥 Welcome to SettleIt</h1>
-        <p>SettleIt is the best app for resolving debates through voting.</p>
+        <h1>🔥 Welcome to <span class="highlight">SettleIt</span></h1>
+        <p class="subtitle">The best app for resolving debates through voting.</p>
         <p>Join now and let the community decide for you.</p>
         <a href="https://settleit.app" class="button">Download the App</a>
     </div>
@@ -19,8 +31,17 @@
             const urlParams = new URLSearchParams(window.location.search);
             const token = urlParams.get("token");
 
+            const hashParams = new URLSearchParams(window.location.hash.substring(1));
+            const error = hashParams.get("error");
+            const errorDescription = hashParams.get("error_description");
+
+            if (error) {
+                redirectToError(errorDescription || "Unknown error.");
+                return;
+            }
+
             if (!token) {
-                return; // If no token, show app info (do not redirect to error).
+                return; // If no token, show the normal app info.
             }
 
             document.getElementById("content").innerHTML = `
@@ -38,7 +59,7 @@
                     redirectToError(result.message || "Error verifying email.");
                 }
             } catch (error) {
-                redirectToError("There was a connection issue. Please try again.");
+                redirectToError("Connection error. Please try again.");
             }
         }
 
