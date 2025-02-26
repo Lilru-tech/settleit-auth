@@ -7,8 +7,8 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #010305 15%, #1a1a1a); /* ✅ Degradado invertido y limitado al 15% */
-    color: #f5f5f5; /* ✅ Texto claro para contraste */
+    background: linear-gradient(to bottom, #010305 40%, #1a1a1a); /* ✅ Gradient extended to 40% */
+    color: #f5f5f5; /* ✅ Brighter text */
     text-align: center;
     padding-top: 50px;
     min-height: 100vh;
@@ -29,6 +29,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: fadeIn 1s ease-in-out;
+    color: #333; /* ✅ Darker text inside the box */
 }
 
 /* ✅ Header con logo y menú */
@@ -166,4 +167,37 @@ nav ul {
 
 nav ul li {
     display: inline; /* ✅ Asegura que los ítems estén en línea */
+}
+
+/* ✅ Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #010305;
+    padding: 10px;
+    border-radius: 8px;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
+}
+
+.dropdown-menu li {
+    display: block;
+    text-align: left;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 12px;
+    color: #dcdcdc;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background: #2e2e2e;
+    color: #4CAF50;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
