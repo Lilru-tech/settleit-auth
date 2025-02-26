@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #010305 80%, #1a1a1a); /* ✅ Gradient extended to 40% */
+    background: linear-gradient(to bottom, #010305 300%, #1a1a1a); /* ✅ Gradient extended to 40% */
     color: #f5f5f5; /* ✅ Brighter text */
     text-align: center;
     padding-top: 50px;
@@ -207,20 +207,34 @@ nav ul li {
     display: block;
 }
 
-/* ✅ Footer con fondo de contraste y ancho completo */
+/* ✅ Footer con color más claro y siempre al final */
 footer {
     width: 100%;
-    background: #121212; /* ✅ Color de fondo oscuro pero contrastante */
+    background: #1b1b1b; /* ✅ 15% más claro que el color actual (#121212) */
     color: #f5f5f5;
     padding: 20px 0;
     text-align: center;
-    margin-top: 40px;
+    margin-top: auto; /* ✅ Lo empuja hacia abajo */
+    position: relative;
+    bottom: 0;
 }
 
 .footer-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 10px;
+}
+
+/* ✅ Asegura que el cuerpo ocupe toda la pantalla y el footer se quede abajo */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ✅ Para que el contenido crezca y el footer quede abajo */
+.main-content {
+    flex: 1;
 }
 
 footer a {
