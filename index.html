@@ -37,6 +37,16 @@
     </script>
 
 <script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+
+  if (code) {
+    console.log("📥 Código de recuperación detectado. Redirigiendo...");
+    window.location.href = `/reset-password.html?code=${code}`;
+  }
+});
     async function handleAuthentication() {
         console.log("🔍 Checking URL parameters...");
 
